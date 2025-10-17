@@ -1,6 +1,6 @@
 name: apollo_studio_dart
 description: An implementation of the Apollo Studio format in Dart.
-version: 0.0.1
+version: 0.0.2
 # repository: https://github.com/my_org/my_repo
 
 environment:

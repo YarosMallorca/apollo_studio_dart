@@ -25,6 +25,7 @@ export 'src/devices/loop.dart';
 export 'src/devices/move.dart';
 export 'src/devices/output.dart';
 export 'src/devices/paint.dart';
+export 'src/devices/pattern.dart';
 export 'src/devices/preview.dart';
 export 'src/devices/refresh.dart';
 export 'src/devices/rotate.dart';
