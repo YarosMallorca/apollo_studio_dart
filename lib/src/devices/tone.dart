@@ -15,7 +15,7 @@ class ToneDevice extends Device {
     required this.channel,
     bool collapsed = false,
     bool enabled = true,
-  }) : super('tone');
+  }) : super('tone', collapsed: collapsed, enabled: enabled);
 
   @override
   String toString() =>

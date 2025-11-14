@@ -15,7 +15,9 @@ class HoldDevice extends Device {
     required this.gate,
     required this.holdMode,
     required this.release,
-  }) : super('hold');
+    bool collapsed = false,
+    bool enabled = true,
+  }) : super('hold', collapsed: collapsed, enabled: enabled);
 
   HoldDevice clone() => HoldDevice(
     time: Time(

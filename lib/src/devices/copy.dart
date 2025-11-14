@@ -31,7 +31,7 @@ class CopyDevice extends Device {
     required this.angles,
     bool collapsed = false,
     bool enabled = true,
-  }) : super('copy');
+  }) : super('copy', collapsed: collapsed, enabled: enabled);
 
   @override
   String toString() =>

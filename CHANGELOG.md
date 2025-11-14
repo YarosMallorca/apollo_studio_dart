@@ -1,3 +1,8 @@
+## 0.0.5
+
+- Fix collapsed and enabled states for devices
+- Fix clipboard manager
+
 ## 0.0.4
 
 - Added missing multi export

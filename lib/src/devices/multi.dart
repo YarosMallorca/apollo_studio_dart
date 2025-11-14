@@ -10,13 +10,14 @@ class MultiDevice extends Device {
   final MultiType mode;
 
   MultiDevice({
-    required this.preprocess,
+    Chain? preprocess,
     required this.chains,
     this.expanded,
-    required this.mode,
+    this.mode = MultiType.forward,
     bool collapsed = false,
     bool enabled = true,
-  }) : super('multi');
+  }) : preprocess = preprocess ?? Chain.empty(),
+       super('multi', collapsed: collapsed, enabled: enabled);
 
   @override
   String toString() =>

@@ -12,7 +12,9 @@ class MoveDevice extends Device {
     required this.offset,
     this.gridMode = GridType.full,
     this.wrap = false,
-  }) : super('move');
+    bool collapsed = false,
+    bool enabled = true,
+  }) : super('move', collapsed: collapsed, enabled: enabled);
 
   @override
   String toString() {

@@ -9,7 +9,7 @@ class MacroFilterDevice extends Device {
     required this.filter,
     bool collapsed = false,
     bool enabled = true,
-  }) : super('macro_filter') {
+  }) : super('macrofilter', collapsed: collapsed, enabled: enabled) {
     // Ensure filter has exactly 100 elements
     assert(
       filter.length == 100,

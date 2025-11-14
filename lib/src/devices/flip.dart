@@ -5,7 +5,12 @@ class FlipDevice extends Device {
   final FlipType flipType;
   final bool bypass;
 
-  FlipDevice({required this.flipType, this.bypass = false}) : super('flip');
+  FlipDevice({
+    required this.flipType,
+    this.bypass = false,
+    bool collapsed = false,
+    bool enabled = true,
+  }) : super('flip', collapsed: collapsed, enabled: enabled);
 
   @override
   String toString() {

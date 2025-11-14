@@ -11,7 +11,7 @@ class GroupDevice extends Device {
     this.expanded,
     bool collapsed = false,
     bool enabled = true,
-  }) : super('group');
+  }) : super('group', collapsed: collapsed, enabled: enabled);
 
   @override
   String toString() =>

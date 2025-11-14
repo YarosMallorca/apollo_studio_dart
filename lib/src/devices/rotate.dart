@@ -5,8 +5,12 @@ class RotateDevice extends Device {
   final RotateType rotateType;
   final bool bypass;
 
-  RotateDevice({required this.rotateType, this.bypass = false})
-    : super('rotate');
+  RotateDevice({
+    required this.rotateType,
+    this.bypass = false,
+    bool collapsed = false,
+    bool enabled = true,
+  }) : super('rotate', collapsed: collapsed, enabled: enabled);
 
   @override
   String toString() {

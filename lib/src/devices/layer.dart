@@ -10,7 +10,9 @@ class LayerDevice extends Device {
     required this.blendingType,
     this.range = 200,
     required this.target,
-  }) : super('layer');
+    bool collapsed = false,
+    bool enabled = true,
+  }) : super('layer', collapsed: collapsed, enabled: enabled);
 
   @override
   String toString() {

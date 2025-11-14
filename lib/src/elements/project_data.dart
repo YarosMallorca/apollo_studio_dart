@@ -5,7 +5,7 @@ class ProjectData {
   final List<int> macros;
   final List<Track> tracks;
   final String author;
-  final int time;
+  final Duration timeSpent;
   final DateTime started;
 
   ProjectData({
@@ -13,7 +13,7 @@ class ProjectData {
     required this.macros,
     required this.tracks,
     required this.author,
-    required this.time,
+    required this.timeSpent,
     required this.started,
   });
 }

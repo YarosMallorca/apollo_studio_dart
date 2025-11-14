@@ -304,11 +304,9 @@ class ApolloWriter {
     }
 
     // Write expanded state (nullable)
+    writeBool(device.expanded != null);
     if (device.expanded != null) {
-      writeBool(true);
       writeInt32(device.expanded!);
-    } else {
-      writeBool(false);
     }
   }
 
@@ -585,7 +583,7 @@ class ApolloWriter {
 
     // Write metadata
     writeString(project.author);
-    writeInt64(project.time);
+    writeInt64(project.timeSpent.inSeconds);
     writeInt64(project.started.millisecondsSinceEpoch ~/ 1000);
 
     // Write undo manager

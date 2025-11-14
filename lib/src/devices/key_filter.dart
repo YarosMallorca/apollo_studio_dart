@@ -7,7 +7,7 @@ class KeyFilterDevice extends Device {
     required this.filter,
     bool collapsed = false,
     bool enabled = true,
-  }) : super('key_filter') {
+  }) : super('keyfilter', collapsed: collapsed, enabled: enabled) {
     // Ensure filter has exactly 101 elements
     assert(
       filter.length == 101,

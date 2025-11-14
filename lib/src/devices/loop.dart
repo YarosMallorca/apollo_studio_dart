@@ -14,7 +14,7 @@ class LoopDevice extends Device {
     required this.hold,
     bool collapsed = false,
     bool enabled = true,
-  }) : super('loop');
+  }) : super('loop', collapsed: collapsed, enabled: enabled);
 
   @override
   String toString() =>

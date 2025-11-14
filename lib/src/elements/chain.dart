@@ -1,8 +1,8 @@
 import 'package:apollo_studio_dart/apollo_studio_dart.dart';
 
 class Chain {
-  final List<Device> devices;
   final String name;
+  final List<Device> devices;
   bool enabled;
   List<bool>? filter; // 101 boolean values for key filter
 
@@ -13,7 +13,7 @@ class Chain {
     this.filter,
   });
 
-  Chain.empty() : devices = [], name = 'Chain #', enabled = true, filter = null;
+  Chain.empty() : devices = [], name = 'Chain', enabled = true;
 
   @override
   String toString() {

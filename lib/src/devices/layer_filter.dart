@@ -9,7 +9,7 @@ class LayerFilterDevice extends Device {
     required this.range,
     bool collapsed = false,
     bool enabled = true,
-  }) : super('layer_filter');
+  }) : super('layerfilter', collapsed: collapsed, enabled: enabled);
 
   @override
   String toString() => 'LayerFilterDevice(target: $target, range: $range)';

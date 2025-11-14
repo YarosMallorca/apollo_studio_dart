@@ -1007,7 +1007,7 @@ class ApolloReader {
       macros: macros,
       tracks: tracks,
       author: author,
-      time: time,
+      timeSpent: Duration(seconds: time),
       started: started,
     );
   }

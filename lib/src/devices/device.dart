@@ -1,7 +1,7 @@
 abstract class Device {
-  bool collapsed = false;
-  bool enabled = true;
+  bool collapsed;
+  bool enabled;
   final String deviceType;
 
-  Device(this.deviceType);
+  Device(this.deviceType, {this.collapsed = false, this.enabled = true});
 }

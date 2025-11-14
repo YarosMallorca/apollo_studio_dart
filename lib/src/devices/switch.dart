@@ -9,7 +9,7 @@ class SwitchDevice extends Device {
     required this.value,
     bool collapsed = false,
     bool enabled = true,
-  }) : super('switch') {
+  }) : super('switch', collapsed: collapsed, enabled: enabled) {
     // Ensure target is valid (1-4)
     assert(target >= 1 && target <= 4, 'Switch target must be between 1 and 4');
   }

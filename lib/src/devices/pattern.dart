@@ -28,7 +28,7 @@ class PatternDevice extends Device {
     required this.expanded,
     bool collapsed = false,
     bool enabled = true,
-  }) : super('pattern');
+  }) : super('pattern', collapsed: collapsed, enabled: enabled);
 
   @override
   String toString() =>

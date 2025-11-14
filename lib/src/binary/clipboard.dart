@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
+import 'package:apollo_studio_dart/src/binary/base64.dart';
 import 'package:apollo_studio_dart/src/devices/device.dart';
 import 'package:apollo_studio_dart/src/enums.dart';
 import 'package:apollo_studio_dart/src/structures/copyable.dart';
@@ -7,13 +8,14 @@ import 'reader.dart';
 import 'writer.dart';
 
 extension ApolloClipboardReader on ApolloReader {
-  /// Creates a reader from Apollo clipboard data (Base64)
+  /// Creates a reader from Apollo compressed clipboard data
   static ApolloReader fromClipboard(String clipboardData) {
     try {
-      final bytes = base64Decode(clipboardData);
-      return ApolloReader(Uint8List.fromList(bytes));
+      // First decompress the RLE Apollo format
+      final decodedBytes = fromCompressedBase64(clipboardData);
+      return ApolloReader(decodedBytes);
     } catch (e) {
-      throw FormatException('Invalid clipboard data: $e');
+      throw FormatException('Invalid Apollo clipboard data: $e');
     }
   }
 
@@ -41,47 +43,43 @@ extension ApolloClipboardReader on ApolloReader {
     final devices = <Device>[];
 
     for (int i = 0; i < count; i++) {
-      // Each item in copyable should be a device
-      final device = readDevice(version);
+      final device = readDevice(version); // Your existing reader logic
       devices.add(device);
     }
 
     return Copyable(devices);
   }
 
-  /// Convenience method to read devices directly from clipboard
   List<Device> readDevicesFromClipboard() {
-    final copyable = readCopyable();
-    return copyable.contents;
+    return readCopyable().contents;
   }
 }
 
 extension ApolloClipboard on ApolloWriter {
-  /// Writes multiple devices in Apollo's clipboard format (Base64 encoded)
+  /// Writes multiple devices in Apollo's clipboard format (Compressed Base64)
   String writeDevicesToClipboard(List<Device> devices) {
     final copyable = Copyable(devices);
     return writeCopyableToClipboard(copyable);
   }
 
-  /// Writes a single device in Apollo's clipboard format (Base64 encoded)
+  /// Writes a single device
   String writeDeviceToClipboard(Device device) {
     return writeDevicesToClipboard([device]);
   }
 
-  /// Writes a copyable in Apollo's clipboard format (Base64 encoded)
+  /// Writes a copyable in Apollo's clipboard format (Compressed Base64)
   String writeCopyableToClipboard(Copyable copyable) {
-    // Clear any previous data
     builder = BytesBuilder();
 
-    // Write the copyable to binary
     writeHeader();
     writeTypeId(TypeId.copyable);
     _writeCopyable(copyable);
 
     final bytes = builder.takeBytes();
 
-    // Convert to Base64 for clipboard
-    return base64Encode(bytes);
+    // Convert to Base64, then compress per Apollo’s logic
+    final b64 = base64Encode(bytes);
+    return toCompressedBase64(b64);
   }
 
   void _writeCopyable(Copyable copyable) {

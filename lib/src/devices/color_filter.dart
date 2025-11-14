@@ -17,7 +17,7 @@ class ColorFilterDevice extends Device {
     required this.valueTolerance,
     bool collapsed = false,
     bool enabled = true,
-  }) : super('color_filter');
+  }) : super('colorfilter', collapsed: collapsed, enabled: enabled);
 
   @override
   String toString() =>

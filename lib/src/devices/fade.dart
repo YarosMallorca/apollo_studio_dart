@@ -20,7 +20,9 @@ class FadeDevice extends Device {
     required this.positions,
     required this.fadeTypes,
     this.expanded,
-  }) : super('fade');
+    bool collapsed = false,
+    bool enabled = true,
+  }) : super('fade', collapsed: collapsed, enabled: enabled);
 
   int get count => colors.length;
 

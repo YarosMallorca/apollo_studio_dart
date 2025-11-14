@@ -5,9 +5,13 @@ class ChokeDevice extends Device {
   final int target;
   final Chain chain;
 
-  ChokeDevice({required this.target, required this.chain})
-    : assert(target >= 1 && target <= 16, 'Target must be between 1 and 16'),
-      super('choke');
+  ChokeDevice({
+    required this.target,
+    required this.chain,
+    bool collapsed = false,
+    bool enabled = true,
+  }) : assert(target >= 1 && target <= 16, 'Target must be between 1 and 16'),
+       super('choke', collapsed: collapsed, enabled: enabled);
 
   @override
   String toString() {
