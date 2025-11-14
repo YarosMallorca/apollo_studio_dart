@@ -1,3 +1,7 @@
+## 0.0.3
+
+- Added missing macro filter export
+
 ## 0.0.2
 
 - Added missing pattern export

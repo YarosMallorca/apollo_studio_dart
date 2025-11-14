@@ -22,6 +22,7 @@ export 'src/devices/key_filter.dart';
 export 'src/devices/layer_filter.dart';
 export 'src/devices/layer.dart';
 export 'src/devices/loop.dart';
+export 'src/devices/macro_filter.dart';
 export 'src/devices/move.dart';
 export 'src/devices/output.dart';
 export 'src/devices/paint.dart';
